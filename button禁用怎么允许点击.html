@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button禁用怎么允许点击</title>
+
+    <style>
+        .wrapper{
+            position: relative;
+            width: 100px;
+            height: 30px;
+        }
+        .button{
+            width: 100%;
+            height: 100%;
+        }
+        .mask{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <button class="button" disabled>点击</button>
+        <div class="mask"></div>
+    </div>
+
+    <script>
+        var button = document.querySelector('.button')
+        button.addEventListener('click',function(){
+            console.log('点击了button')
+        })
+        var mask = document.querySelector('.mask')
+        mask.addEventListener('click',function(e){
+            console.log('点击了mask')
+        },{capture: false})
+
+
+
+    </script>
+</body>
+
+</html>
